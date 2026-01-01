@@ -1,0 +1,122 @@
+/* 全体 */
+.scene {
+  min-height: 100vh;
+  padding: 48px 20px;
+
+  /* 黒ベタ → 明るめグラデ（華やか） */
+  background: radial-gradient(
+      1200px 600px at 20% 20%,
+      rgba(124, 58, 237, 0.22),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 520px at 85% 35%,
+      rgba(14, 165, 233, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 40% 95%,
+      rgba(34, 197, 94, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0b1220 0%, #0a0f1a 100%);
+  color: #eaf0ff;
+}
+
+/* 中央寄せの“器” */
+.sceneHeader,
+.sceneGrid {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* タイトル */
+.sceneTitle {
+  margin: 0 0 10px;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #f5f8ff;
+}
+
+/* 説明文（今ここが読めないのでコントラスト上げる） */
+.sceneDesc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(234, 240, 255, 0.82);
+}
+
+/* グリッド（中央寄せ＆均等） */
+.sceneGrid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* 画面が狭いときは2列→1列 */
+@media (max-width: 920px) {
+  .sceneGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .sceneGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* カード */
+.actionCard {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  text-align: left;
+
+  display: grid;
+  gap: 12px;
+  transition: transform 120ms ease, background 120ms ease,
+    border-color 120ms ease;
+}
+
+.actionCard:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.actionCard:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.7);
+  outline-offset: 3px;
+}
+
+/* 画像 */
+.actionImg {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+/* テキスト */
+.actionTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #f5f8ff;
+}
+
+.actionDesc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(234, 240, 255, 0.78);
+}
